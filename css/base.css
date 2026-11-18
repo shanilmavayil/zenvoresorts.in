@@ -1,0 +1,167 @@
+/* ===== Zenvo Resorts: shared styles (colours, fonts, navbar, footer, buttons) ===== */
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=DM+Sans:wght@400;500;700&family=Lora:wght@400;500&family=Marcellus&display=swap");
+
+:root {
+  --olive: #41391b;
+  --cream: #ffffc8;
+  --lime: #dfffb0;
+  --sage: #b3e394;
+  --green: #86ad6e;
+  --brown: #5a3a25;
+  --ink: #2a2a2a;
+  --black: #000;
+
+  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-logo: "Marcellus", Georgia, serif;
+  --font-serif: "Lora", Georgia, serif;
+  --font-ui: "DM Sans", Arial, sans-serif;
+
+  --radius-lg: 28px;
+  --radius-pill: 999px;
+  --page-pad: clamp(20px, 5vw, 72px);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: var(--font-ui);
+  color: var(--ink);
+  background: var(--cream);
+  line-height: 1.6;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--brown); outline-offset: 3px; }
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 12px 28px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 0;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn-green { background: var(--green); color: var(--ink); }
+.btn-green:hover { background: #97c07d; }
+.btn-brown { background: var(--brown); color: #fff; }
+.btn-brown:hover { background: #6e4930; }
+.btn-light { background: #f4f1ee; color: var(--ink); }
+.btn-light:hover { background: #fff; }
+
+/* Navbar */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 14px var(--page-pad);
+  background: var(--olive);
+  color: #fff;
+}
+.logo {
+  font-family: var(--font-logo);
+  font-size: 1.5rem;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  color: #fff;
+}
+.site-nav { display: flex; align-items: center; gap: 36px; }
+.site-nav a:not(.btn) {
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-decoration: none;
+  color: #fff;
+  padding-bottom: 2px;
+  border-bottom: 2px solid transparent;
+}
+.site-nav a:not(.btn):hover,
+.site-nav a[aria-current="page"] { border-bottom-color: var(--sage); }
+
+.menu-toggle {
+  display: none;
+  width: 44px; height: 44px;
+  background: none; border: 0; cursor: pointer;
+  flex-direction: column; justify-content: center; align-items: center; gap: 5px;
+}
+.menu-toggle span { width: 24px; height: 2px; background: #fff; }
+
+@media (max-width: 760px) {
+  .menu-toggle { display: flex; }
+  .site-nav {
+    display: none;
+    position: absolute;
+    top: 100%; left: 0; right: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+    padding: 20px var(--page-pad) 26px;
+    background: var(--olive);
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+  }
+  .site-nav.is-open { display: flex; }
+  .logo { font-size: 1.3rem; }
+}
+
+/* Footer */
+.site-footer {
+  background: var(--olive);
+  color: #f1efdc;
+  padding: 48px var(--page-pad) 24px;
+}
+.footer-inner {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1.6fr;
+  gap: 36px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.footer-brand p { margin: 8px 0 0; font-size: 0.9rem; opacity: 0.85; }
+.footer-links { display: flex; flex-direction: column; gap: 8px; }
+.footer-links h3 { margin: 0 0 6px; font-family: var(--font-logo); font-weight: 400; font-size: 1.05rem; color: #fff; }
+.footer-links a { font-size: 0.9rem; text-decoration: none; opacity: 0.9; overflow-wrap: anywhere; }
+.footer-links a:hover { opacity: 1; text-decoration: underline; }
+.footer-copy {
+  max-width: 1100px;
+  margin: 36px auto 0;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+  font-size: 0.8rem;
+  opacity: 0.75;
+}
+@media (max-width: 760px) {
+  .footer-inner { grid-template-columns: 1fr; gap: 28px; }
+}
+
+/* Floating WhatsApp button (remove by setting SHOW_WHATSAPP_BUTTON to false in js/config.js) */
+.wa-float {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 60;
+  width: 58px; height: 58px;
+  display: grid; place-items: center;
+  border-radius: 50%;
+  background: #25d366;
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease;
+}
+.wa-float:hover { transform: scale(1.08); }
+.wa-float svg { width: 32px; height: 32px; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .btn, .wa-float { transition: none; }
+}
