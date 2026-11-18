@@ -14,7 +14,7 @@
       '<nav id="site-nav" class="site-nav">' +
         '<a href="index.html"' + active("index.html") + '>Home</a>' +
         '<a href="resorts.html"' + active("resorts.html") + '>Resorts</a>' +
-        '<a href="about.html"' + active("about.html") + '>About</a>' +
+        '<a href="index.html#about">About</a>' +
         '<a class="btn btn-green nav-cta" href="resorts.html">Explore Resorts</a>' +
       '</nav>' +
     '</header>';
@@ -30,7 +30,7 @@
           '<h3>Explore</h3>' +
           '<a href="index.html">Home</a>' +
           '<a href="resorts.html">Resorts</a>' +
-          '<a href="about.html">About</a>' +
+          '<a href="index.html#about">About</a>' +
         '</div>' +
         '<div class="footer-links">' +
           '<h3>Contact us</h3>' +
