@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Resorts | Zenvo Resorts</title>
+  <meta name="description" content="Browse Zenvo Resorts' handpicked stays in Kakkadampoyil.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,700&family=Outfit:wght@300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/resorts.css">
+</head>
+<body>
+
+  <div id="site-header"></div>
+
+  <main class="resorts-page">
+    <h1>Resorts</h1>
+
+    <form class="filters" id="filters" aria-label="Filter resorts" onsubmit="return false">
+      <div class="filters-title">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h18l-7 8.5V20l-4-2v-5.5z"/></svg>
+        Filters
+      </div>
+      <div class="pill-select"><select id="price-range" aria-label="Price">
+        <option value="">Price</option>
+        <option value="5000-10000">5000 to 10000</option>
+        <option value="10000-15000">10000 to 15000</option>
+        <option value="15000-20000">15000 to 20000</option>
+        <option value="20000-25000">20000 to 25000</option>
+        <option value="25000-30000">25000 to 30000</option>
+        <option value="30000-35000">30000 to 35000</option>
+        <option value="35000-40000">35000 to 40000</option>
+      </select></div>
+      <div class="pill-select"><select id="guest-count" aria-label="Number of guests">
+        <option value="">Guests</option>
+        <option value="4">4 guests</option>
+        <option value="5">5 guests</option>
+        <option value="6">6 guests</option>
+        <option value="7">7 guests</option>
+        <option value="8">8 guests</option>
+        <option value="9">9 guests</option>
+        <option value="10">10 guests</option>
+        <option value="11">11 guests</option>
+        <option value="12">12 guests</option>
+        <option value="13">13 guests</option>
+        <option value="14">14 guests</option>
+        <option value="15">15 guests</option>
+        <option value="16">16 guests</option>
+        <option value="17">17 guests</option>
+        <option value="18">18 guests</option>
+        <option value="19">19 guests</option>
+        <option value="20">20 guests</option>
+      </select></div>
+      <div class="pill-select"><select id="sort-by" aria-label="Sort by">
+        <option value="default">Sort By</option>
+        <option value="low">Price: low to high</option>
+        <option value="high">Price: high to low</option>
+      </select></div>
+      <button type="button" id="reset-filters" class="filter-reset">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19"/></svg>
+        Clear All
+      </button>
+    </form>
+    <p class="result-count" id="result-count" aria-live="polite"></p>
+
+    <div class="resort-grid" id="resort-grid"></div>
+    <p class="no-results" id="no-results" hidden>No resorts match these filters. Try changing them.</p>
+    <div class="load-more-wrap"><button type="button" id="load-more" class="load-more" hidden>Load more</button></div>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="js/config.js"></script>
+  <script src="js/navbar.js"></script>
+  <script src="js/resorts-data.js"></script>
+  <script src="js/resorts.js"></script>
+</body>
+</html>
